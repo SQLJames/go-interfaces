@@ -6,7 +6,7 @@ import (
 )
 
 func main()  {
-	FS := filesystem.New()
+	FS := filesystem.New("./Data", "text")
 	storageDriver := driver.New(FS)
 	storageDriver.Insert("test",[]byte("data used for demo purposes"))
 	storageDriver.Read("test")

@@ -2,6 +2,7 @@ package driver
 
 import (
 	"fmt"
+	"io"
 )
 
 type Storage interface {
@@ -10,7 +11,7 @@ type Storage interface {
 }
 
 type Driver struct {
-	storageLayer Storage
+	storageLayer io.ReadWriteCloser
 }
 
 func New(storageLayer Storage) *Driver{

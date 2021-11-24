@@ -1,7 +1,6 @@
 
 package filesystem
 
-
 import (
 	"fmt"
 	"os"
@@ -13,8 +12,14 @@ type Filesystem struct {
 	extension string
 }
 
-func New() *Filesystem{
-	return &Filesystem{"./Data", ".txt"}
+
+
+func New(directory, extension string ) *Filesystem{
+	if extension[0:1] != "." {
+		extension = "." + extension
+	}
+
+	return &Filesystem{directory, extension}
 }
 
 //Read gets the file (tableName) on disk and returns a byte array of data stored in the file or an error.
